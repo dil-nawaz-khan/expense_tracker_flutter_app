@@ -1,3 +1,6 @@
+import 'dart:ffi';
+
+import 'package:expense_tracker_flutter_app/widgets/chart/chart.dart';
 import 'package:expense_tracker_flutter_app/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker_flutter_app/models/expense.dart';
 import 'package:expense_tracker_flutter_app/widgets/new_expense.dart';
@@ -84,7 +87,12 @@ class _Expenses extends State<Expenses> {
           IconButton(onPressed: _openAddExpenseOverlay, icon: Icon(Icons.add)),
         ],
       ),
-      body: Column(children: [Text('The Chart'), Expanded(child: mainContent)]),
+      body: Column(
+        children: [
+          Chart(expenses: _registeredExpenses),
+          Expanded(child: mainContent),
+        ],
+      ),
     );
   }
 }
